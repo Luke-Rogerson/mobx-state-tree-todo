@@ -1,12 +1,19 @@
 import React, { createContext } from 'react'
-import { TodoList, TodoListType } from '../../models/TodoList'
-
-const todos = TodoList.create({ todos: [{ text: 'Feed the dog' }] })
+import { TodoListType } from '../../models/TodoList'
 
 export const StoreContext = createContext<TodoListType>({} as TodoListType)
 
-export const StoreProvider: React.FC = ({ children }) => {
+export interface StoreProviderProps {
+    todoList: TodoListType
+}
+
+export const StoreProvider: React.FC<StoreProviderProps> = ({
+    children,
+    todoList,
+}) => {
     return (
-        <StoreContext.Provider value={todos}>{children}</StoreContext.Provider>
+        <StoreContext.Provider value={todoList}>
+            {children}
+        </StoreContext.Provider>
     )
 }

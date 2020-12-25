@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native'
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { persist } from 'mst-persist'
 import * as eva from '@eva-design/eva'
 import { ApplicationProvider, Layout } from '@ui-kitten/components'
 
@@ -10,6 +10,9 @@ import { StoreProvider } from './components/StoreProvider/StoreProvider'
 
 import { TodoList } from './components/TodoList/TodoList'
 import { AddTodo } from './components/AddTodo/AddTodo'
+import { TodoListType } from './models/TodoList'
+import { setupRootStore } from './models/RootStore'
+import { TODO_LIST_STORAGE_KEY } from './constants'
 
 const HomeScreen: React.FC = () => {
     return (
@@ -21,8 +24,28 @@ const HomeScreen: React.FC = () => {
 }
 
 export const App: React.FC = () => {
+    const [rootStore, setRootStore] = useState<TodoListType | null>(null)
+
+    useEffect(() => {
+        setupRootStore().then((todoStore) => {
+            setRootStore(todoStore)
+        })
+    }, [])
+
+    // Don't render app until store is properly setup
+    if (!rootStore) return null
+
+    // persist created todos
+    persist(TODO_LIST_STORAGE_KEY, rootStore, {
+        storage: AsyncStorage,
+        jsonify: true,
+    }).then(() => {
+        // eslint-disable-next-line no-console
+        console.log('Persisted todo store')
+    })
+
     return (
-        <StoreProvider>
+        <StoreProvider todoList={rootStore}>
             <ApplicationProvider {...eva} theme={eva.light}>
                 <SafeAreaView
                     style={{ flex: 1, justifyContent: 'space-between' }}
