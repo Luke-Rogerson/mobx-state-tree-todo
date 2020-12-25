@@ -13,6 +13,8 @@ export const EditTodo: React.FC<EditTodoProps> = ({ todo, setShowModal }) => {
     return (
         <Card disabled style={{ flexDirection: 'row' }}>
             <Input
+                accessibilityLabel="Edit todo"
+                accessibilityHint={`Edit ${todo.text}`}
                 value={editInputValue ?? ''}
                 onChangeText={(nextValue) => {
                     setEditInputValue(nextValue)
@@ -20,6 +22,8 @@ export const EditTodo: React.FC<EditTodoProps> = ({ todo, setShowModal }) => {
                 style={{ width: 200 }}
             />
             <Button
+                accessibilityLabel="Done"
+                accessibilityHint="Complete editing"
                 onPress={() => {
                     if (editInputValue.length > 0) {
                         todo.edit(editInputValue)

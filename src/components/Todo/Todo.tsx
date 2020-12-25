@@ -47,6 +47,8 @@ export const Todo: TodoProps = ({ item: todo, index }) => {
                     <Layout>
                         <ButtonGroup size="tiny">
                             <Button
+                                accessibilityLabel="Edit"
+                                accessibilityHint="Edit this todo"
                                 onPress={() => setShowModal(true)}
                                 status="primary"
                                 size="tiny"
@@ -55,6 +57,8 @@ export const Todo: TodoProps = ({ item: todo, index }) => {
                                 EDIT
                             </Button>
                             <Button
+                                accessibilityLabel="Remove"
+                                accessibilityHint="Remove this todo"
                                 onPress={() => todo.remove()}
                                 status="danger"
                                 size="tiny"
@@ -63,6 +67,8 @@ export const Todo: TodoProps = ({ item: todo, index }) => {
                             </Button>
                         </ButtonGroup>
                         <Datepicker
+                            accessibilityLabel="Set due date"
+                            accessibilityHint="Set due date for this todo"
                             style={{ marginTop: 5 }}
                             date={dueDate}
                             onSelect={(nextDate) => setDueDate(nextDate)}

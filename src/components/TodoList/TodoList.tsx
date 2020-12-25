@@ -5,7 +5,6 @@ import { observer } from 'mobx-react-lite'
 
 import { useStore } from '../../hooks/useStore/useStore'
 
-import { todoListStyles } from './TodoList.styles'
 import { Todo } from '../Todo/Todo'
 
 export const TodoList: React.FC = observer(() => {
@@ -13,8 +12,11 @@ export const TodoList: React.FC = observer(() => {
 
     return (
         <List
-            style={todoListStyles.container}
+            style={{ flex: 1 }}
             data={store.getTodos().slice()}
+            contentContainerStyle={
+                store.getTodos().slice().length === 0 && { flex: 1 }
+            }
             ItemSeparatorComponent={Divider}
             renderItem={(props) => <Todo {...props} />}
             ListEmptyComponent={
@@ -23,11 +25,15 @@ export const TodoList: React.FC = observer(() => {
                         flex: 1,
                         justifyContent: 'center',
                         alignItems: 'center',
-                        borderWidth: 1,
-                        borderColor: 'red',
                     }}
                 >
-                    <Text category="p1">Nothing yet...</Text>
+                    <Text
+                        accessibilityHint="Nothing yet"
+                        accessibilityLabel="No todos yet"
+                        category="h3"
+                    >
+                        Nothing yet...
+                    </Text>
                 </Layout>
             }
         />

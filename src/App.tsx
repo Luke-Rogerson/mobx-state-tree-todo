@@ -4,24 +4,13 @@ import { SafeAreaView } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { persist } from 'mst-persist'
 import * as eva from '@eva-design/eva'
-import { ApplicationProvider, Layout } from '@ui-kitten/components'
+import { ApplicationProvider } from '@ui-kitten/components'
 
 import { StoreProvider } from './components/StoreProvider/StoreProvider'
-
-import { TodoList } from './components/TodoList/TodoList'
-import { AddTodo } from './components/AddTodo/AddTodo'
 import { TodoListType } from './models/TodoList'
 import { setupRootStore } from './models/RootStore'
 import { TODO_LIST_STORAGE_KEY } from './constants'
-
-const HomeScreen: React.FC = () => {
-    return (
-        <Layout style={{ flex: 1, justifyContent: 'space-between' }}>
-            <TodoList />
-            <AddTodo />
-        </Layout>
-    )
-}
+import { MainScreen } from './components/MainScreen/MainScreen'
 
 export const App: React.FC = () => {
     const [rootStore, setRootStore] = useState<TodoListType | null>(null)
@@ -50,7 +39,7 @@ export const App: React.FC = () => {
                 <SafeAreaView
                     style={{ flex: 1, justifyContent: 'space-between' }}
                 >
-                    <HomeScreen />
+                    <MainScreen />
                 </SafeAreaView>
             </ApplicationProvider>
         </StoreProvider>
