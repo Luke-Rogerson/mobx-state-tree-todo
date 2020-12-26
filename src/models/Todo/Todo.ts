@@ -14,6 +14,7 @@ export const Todo = types
     .actions((self) => ({
         toggleCompleted: () => (self.completed = !self.completed),
         edit: (text: string) => (self.text = text),
+        // need to better resolve circlular dependencies - https://github.com/mobxjs/mobx-state-tree/issues/1330
         remove: () => getRoot<any>(self).removeTodo(self),
         setDueDate: (date: Date) => (self.due = date),
     }))

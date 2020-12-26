@@ -29,6 +29,9 @@ export const Todo: TodoProps = ({ item: todo, index }) => {
     return (
         <>
             <ListItem
+                accessibilityLabel={
+                    todo.completed ? 'Mark as incompleted' : 'Mark as completed'
+                }
                 onPress={() => todo.toggleCompleted()}
                 title={(evaProps) => {
                     return (
