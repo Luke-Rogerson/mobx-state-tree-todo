@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-param-reassign */
 

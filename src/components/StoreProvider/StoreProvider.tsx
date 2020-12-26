@@ -1,5 +1,5 @@
 import React, { createContext } from 'react'
-import { TodoListType } from '../../models/TodoList'
+import { TodoListType } from '../../models/TodoList/TodoList'
 
 export const StoreContext = createContext<TodoListType>({} as TodoListType)
 

@@ -7,6 +7,7 @@ module.exports = {
         '@typescript-eslint/camelcase': 'off',
         'react/prefer-stateless-function': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        'react/jsx-props-no-spreading': 'off',
     },
     ignorePatterns: ['*.config.js', '*.test.tsx'],
 }

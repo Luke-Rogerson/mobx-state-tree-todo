@@ -1,5 +1,5 @@
 import { types, Instance, destroy } from 'mobx-state-tree'
-import { Todo, TodoType } from './Todo'
+import { Todo, TodoType } from '../Todo/Todo'
 
 export const TodoList = types
     .model({

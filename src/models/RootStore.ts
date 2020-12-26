@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { TodoList, TodoListType } from './TodoList'
+import { TodoList, TodoListType } from './TodoList/TodoList'
 import { TODO_LIST_STORAGE_KEY } from '../constants'
 
 export const setupRootStore = async (): Promise<TodoListType> => {

@@ -11,7 +11,7 @@ import {
     Layout,
 } from '@ui-kitten/components'
 
-import { TodoType } from '../../models/Todo'
+import { TodoType } from '../../models/Todo/Todo'
 import { EditTodo } from '../EditTodo/EditTodo'
 
 type TodoProps = ListRenderItem<TodoType>

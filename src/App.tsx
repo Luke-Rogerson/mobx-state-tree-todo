@@ -7,7 +7,7 @@ import * as eva from '@eva-design/eva'
 import { ApplicationProvider } from '@ui-kitten/components'
 
 import { StoreProvider } from './components/StoreProvider/StoreProvider'
-import { TodoListType } from './models/TodoList'
+import { TodoListType } from './models/TodoList/TodoList'
 import { setupRootStore } from './models/RootStore'
 import { TODO_LIST_STORAGE_KEY } from './constants'
 import { MainScreen } from './components/MainScreen/MainScreen'

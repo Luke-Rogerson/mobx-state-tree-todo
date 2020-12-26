@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 import { Button, Input, Card } from '@ui-kitten/components'
-import { TodoType } from '../../models/Todo'
+import { TodoType } from '../../models/Todo/Todo'
 
 interface EditTodoProps {
     todo: TodoType
-    setShowModal: React.Dispatch<React.SetStateAction<boolean>>
+    setShowModal: Dispatch<SetStateAction<boolean>>
 }
 
 export const EditTodo: React.FC<EditTodoProps> = ({ todo, setShowModal }) => {

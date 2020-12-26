@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import { List, Divider, Text, Layout } from '@ui-kitten/components'
-import { observer } from 'mobx-react-lite'
+import { observer } from 'mobx-react'
 
 import { useStore } from '../../hooks/useStore/useStore'
 
