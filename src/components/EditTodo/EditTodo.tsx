@@ -2,7 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from 'react'
 import { Button, Input, Card } from '@ui-kitten/components'
 import { TodoType } from '../../models/Todo/Todo'
 
-interface EditTodoProps {
+export interface EditTodoProps {
     todo: TodoType
     setShowModal: Dispatch<SetStateAction<boolean>>
 }
