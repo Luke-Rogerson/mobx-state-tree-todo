@@ -2,13 +2,13 @@
 /* eslint-disable no-param-reassign */
 
 import { types, Instance, getRoot } from 'mobx-state-tree'
-import { v4 as uuid } from 'uuid'
+import { genId } from './Todo.utils'
 
 export const Todo = types
     .model({
         text: types.string,
         completed: false,
-        id: types.optional(types.identifier, uuid()),
+        id: types.optional(types.identifier, genId),
         due: types.optional(types.Date, new Date()),
     })
     .actions((self) => ({
